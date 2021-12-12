@@ -5,24 +5,23 @@
 [ext_resource path="res://Characters/Player/Spritesheets/Wizard-Feet-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Player/Magic/Fire.tscn" type="PackedScene" id=4]
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
 region = Rect2( 20, 0, 20, 20 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
 region = Rect2( 60, 0, 20, 20 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 4.0
 } ]
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -38,8 +37,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Magic"
+[sub_resource type="Animation" id=5]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -69,8 +67,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Swing"
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -99,8 +96,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Walk"
+[sub_resource type="Animation" id=7]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -125,8 +121,7 @@ script = ExtResource( 2 )
 visible = false
 position = Vector2( 0, -6.75 )
 scale = Vector2( 5, 5 )
-frames = SubResource( 7 )
-frame = 1
+frames = SubResource( 3 )
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -137,10 +132,10 @@ hframes = 7
 frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 2 )
-anims/Magic = SubResource( 3 )
-anims/Swing = SubResource( 1 )
-anims/Walk = SubResource( 4 )
+anims/Idle = SubResource( 4 )
+anims/Magic = SubResource( 5 )
+anims/Swing = SubResource( 6 )
+anims/Walk = SubResource( 7 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -25.7661

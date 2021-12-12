@@ -12,8 +12,7 @@ onready var feet = get_node("Feet")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Global.Player = self
 
 
 # default are state.get_step(),speed are relative
