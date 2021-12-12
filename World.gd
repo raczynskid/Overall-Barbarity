@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var player = Global.Player
+onready var player = get_node("Player")
 onready var nav = get_node("Environment/Navigation2D")
 
 func _on_Timer_timeout():
