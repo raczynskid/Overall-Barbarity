@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Characters/Enemies/Goblin/Spritesheets/Goblin-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Characters/Enemies/Goblin/Goblin.gd" type="Script" id=2]
 [ext_resource path="res://FX/OnFire.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Characters/Enemies/Goblin/Pathfinding.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -58,6 +57,7 @@ radius = 18.6667
 height = 56.0
 
 [node name="Goblin" type="KinematicBody2D" groups=[
+"enemy",
 "flammeable",
 ]]
 script = ExtResource( 2 )
@@ -78,6 +78,3 @@ anims/Walk = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="OnFire" parent="." instance=ExtResource( 3 )]
-
-[node name="Pathfinding" type="Node" parent="."]
-script = ExtResource( 4 )
