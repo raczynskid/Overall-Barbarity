@@ -103,5 +103,14 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource( 5 )
 
+[node name="Label" type="Label" parent="."]
+margin_left = -25.3984
+margin_top = -125.405
+margin_right = 14.6016
+margin_bottom = -111.405
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="AttackArea" to="." method="_on_AttackArea_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_AttackArea_body_exited"]

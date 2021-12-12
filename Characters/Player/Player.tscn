@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Characters/Player/Spritesheets/Wizard-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=2]
@@ -88,9 +88,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "hurtbox_enable"
+}, {
 "args": [  ],
 "method": "attack_end"
 } ]
@@ -114,6 +117,9 @@ tracks/0/keys = {
 [sub_resource type="CapsuleShape2D" id=8]
 height = 42.87
 
+[sub_resource type="CircleShape2D" id=9]
+radius = 42.2495
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -129,7 +135,7 @@ rotation = 1.5708
 scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
 hframes = 7
-frame = 4
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 4 )
@@ -152,3 +158,12 @@ position = Vector2( 54.8822, -18.1129 )
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2( -5.18544, -1.1785 )
 shape = SubResource( 8 )
+
+[node name="MeleeHurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHurtbox"]
+position = Vector2( 15.416, 0 )
+shape = SubResource( 9 )
+disabled = true
+
+[connection signal="body_entered" from="MeleeHurtbox" to="." method="_on_MeleeHurtbox_body_entered"]

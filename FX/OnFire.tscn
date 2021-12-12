@@ -27,3 +27,9 @@ amount = 50
 lifetime = 3.0
 local_coords = false
 process_material = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

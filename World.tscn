@@ -19,6 +19,9 @@ position = Vector2( 934.834, 950.601 )
 [node name="GoblinArcher" parent="Mobs" instance=ExtResource( 4 )]
 position = Vector2( 772.254, 1305.05 )
 
+[node name="Goblin2" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 715.093, 643.822 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 447.144, 937.228 )
 

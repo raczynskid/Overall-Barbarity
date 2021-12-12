@@ -3,12 +3,15 @@ extends KinematicBody2D
 # player node
 var player
 
+# stats
+export var hp : float = 100.0
+
 # states
 onready var burning = false
 onready var fire = get_node("OnFire")
 
 # movement and pathfinding
-export var speed : float = 100
+export var speed : float = 100.0
 var velocity = Vector2.ZERO
 var path = []
 var threshold = 25
@@ -18,6 +21,9 @@ onready var in_range : bool = false
 # animation
 onready var animation_player = get_node("AnimationPlayer")
 
+# other
+onready var label = get_node("Label")
+
 func _ready():
 	yield(owner, "ready")
 	nav = owner.nav
@@ -25,6 +31,8 @@ func _ready():
 
 # warning-ignore:unused_variable
 func _physics_process(delta):
+	if hp < 0:
+		die()
 	var move_distance = speed * delta
 	if not in_range:
 		animation_player.play("Walk")
@@ -36,6 +44,7 @@ func _physics_process(delta):
 		move_to_target()
 	else:
 		animation_player.play("Idle")
+	label.text = str(hp)
 
 func move_to_target():
 	if global_position.distance_to(path[0]) < threshold:
@@ -63,3 +72,6 @@ func pivot_to_player():
 func burn():
 	burning = true
 	fire.start()
+
+func die():
+	queue_free()

@@ -4,11 +4,13 @@ var attack
 export onready var initial_sword_cooldown : float = 0.2
 export onready var sword_cooldown : float = initial_sword_cooldown
 export onready var MOVE_SPEED : int = 20000
+export onready var MELEE_DMG : int = 25
 
 onready var animation_player = get_node("AnimationPlayer")
 onready var label = get_node("Label")
 onready var fire = get_node("Fire")
 onready var feet = get_node("Feet")
+onready var hurtbox = get_node("MeleeHurtbox/CollisionShape2D")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,8 +62,16 @@ func _physics_process(delta):
 	if sword_cooldown >= 0:
 		sword_cooldown -= delta
 	label.text = str(sword_cooldown)
+
+func _on_MeleeHurtbox_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.hp -= MELEE_DMG
+
+func hurtbox_enable():
+	hurtbox.disabled = false
+
 func attack_end():
 	attack = false
 	sword_cooldown = initial_sword_cooldown
 	fire.disable()
-
+	hurtbox.disabled = true
