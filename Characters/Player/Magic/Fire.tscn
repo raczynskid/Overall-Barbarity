@@ -47,5 +47,3 @@ script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DamageArea"]
 polygon = PoolVector2Array( 250, 80, 250, -80, 0, 0 )
-
-[connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_DamageArea_body_entered"]

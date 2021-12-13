@@ -5,12 +5,16 @@ export onready var initial_sword_cooldown : float = 0.2
 export onready var sword_cooldown : float = initial_sword_cooldown
 export onready var MOVE_SPEED : int = 20000
 export onready var MELEE_DMG : int = 25
+export onready var HP : int = 100
+export onready var MANA : int = 100
+onready var mana_regeneration : bool = false
 
 onready var animation_player = get_node("AnimationPlayer")
 onready var label = get_node("Label")
 onready var fire = get_node("Fire")
 onready var feet = get_node("Feet")
 onready var hurtbox = get_node("MeleeHurtbox/CollisionShape2D")
+onready var mana_regen_timer = get_node("ManaRegeneration")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,10 +32,16 @@ func _physics_process(delta):
 			attack = true
 			animation_player.play("Swing")
 	if Input.is_action_pressed("alt_attack"):
-		attack = true
-		animation_player.play("Magic")
-		fire.enable()
-
+		mana_regeneration = false
+		mana_regen_timer = 3
+		if MANA > 0:
+			attack = true
+			animation_player.play("Magic")
+			fire.enable()
+			MANA -= 10 * delta
+	else:
+		if mana_regeneration and MANA < 100:
+			MANA += 100 * delta
 
 		
 	var move_vec = Vector2()
@@ -66,6 +76,9 @@ func _physics_process(delta):
 func _on_MeleeHurtbox_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.hp -= MELEE_DMG
+
+func _on_ManaRegeneration_timeout():
+	mana_regeneration = true
 
 func hurtbox_enable():
 	hurtbox.disabled = false
