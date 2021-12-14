@@ -15,6 +15,7 @@ onready var fire = get_node("Fire")
 onready var feet = get_node("Feet")
 onready var hurtbox = get_node("MeleeHurtbox/CollisionShape2D")
 onready var mana_regen_timer = get_node("ManaRegeneration")
+onready var sprite = get_node("Sprite")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -75,7 +76,7 @@ func _physics_process(delta):
 
 func _on_MeleeHurtbox_body_entered(body):
 	if body.is_in_group("enemy"):
-		body.hp -= MELEE_DMG
+		body.take_damage(MELEE_DMG)
 
 func _on_ManaRegeneration_timeout():
 	mana_regeneration = true
@@ -88,3 +89,7 @@ func attack_end():
 	sword_cooldown = initial_sword_cooldown
 	fire.disable()
 	hurtbox.disabled = true
+
+func take_damage(dmg_points):
+	sprite.self_modulate = Color(255,255,255)
+	HP -= dmg_points

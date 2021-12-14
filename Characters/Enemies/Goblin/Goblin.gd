@@ -5,6 +5,7 @@ var player
 
 # stats
 export var hp : float = 100.0
+export var MELEE_DMG : float = 10
 
 # states
 onready var burning = false
@@ -20,6 +21,10 @@ onready var in_range : bool = false
 
 # animation
 onready var animation_player = get_node("AnimationPlayer")
+onready var sprite = get_node("Sprite")
+
+# combat
+onready var hurtbox = get_node("Hurtbox/CollisionShape2D")
 
 # other
 onready var label = get_node("Label")
@@ -75,3 +80,17 @@ func burn():
 
 func die():
 	queue_free()
+
+func take_damage(dmg_points):
+	sprite.self_modulate = Color(255, 0, 0)
+	hp -= dmg_points
+
+func _on_Hurtbox_body_entered(body):
+	if body == player:
+		player.take_damage(MELEE_DMG)
+
+func _on_attack():
+	hurtbox.disabled = true
+
+func _on_attack_end():
+	hurtbox.disabled = false

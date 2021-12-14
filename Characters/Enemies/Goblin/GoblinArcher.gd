@@ -18,6 +18,7 @@ var retreat : bool = false
 
 # animation
 onready var animation_player = get_node("AnimationPlayer")
+onready var sprite = get_node("Sprite")
 
 func _ready():
 	yield(owner, "ready")
@@ -48,3 +49,6 @@ func burn():
 func die():
 	queue_free()
 	
+func take_damage(dmg_points):
+	sprite.self_modulate = Color(255,0,0)
+	hp -= dmg_points
