@@ -121,7 +121,9 @@ height = 42.87
 [sub_resource type="CircleShape2D" id=9]
 radius = 42.2495
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 
 [node name="Feet" type="AnimatedSprite" parent="."]

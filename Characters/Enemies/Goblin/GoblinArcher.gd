@@ -5,6 +5,7 @@ var player
 
 # stats
 export onready var hp : float = 50.0
+export onready var SHOT_RANGE : int = 500
 
 # states
 onready var burning = false
@@ -19,6 +20,11 @@ var retreat : bool = false
 # animation
 onready var animation_player = get_node("AnimationPlayer")
 onready var sprite = get_node("Sprite")
+
+# combat
+onready var target_ray = get_node("Targeting")
+onready var arrow
+export(Resource) var missile
 
 func _ready():
 	yield(owner, "ready")
@@ -52,3 +58,14 @@ func die():
 func take_damage(dmg_points):
 	sprite.self_modulate = Color(255,0,0)
 	hp -= dmg_points
+
+func _on_Shooting_timeout():
+	if (global_position.distance_to(player.global_position)) < SHOT_RANGE:
+		animation_player.play("Shoot")
+		arrow = missile.instance()
+		arrow.shooter = self
+		arrow.target_object = player
+		arrow.set_position(self.get_position())
+
+func _on_fire_shot():
+	owner.add_child(arrow) 

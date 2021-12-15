@@ -17,14 +17,41 @@ script = ExtResource( 5 )
 
 [node name="Mobs" type="Node2D" parent="."]
 
-[node name="Goblin" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 934.834, 950.601 )
-
 [node name="GoblinArcher" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 772.254, 1305.05 )
+position = Vector2( 1653.2, 1108.72 )
+
+[node name="GoblinArcher2" parent="Mobs" instance=ExtResource( 4 )]
+position = Vector2( 3371.32, 1710.59 )
+
+[node name="GoblinArcher3" parent="Mobs" instance=ExtResource( 4 )]
+position = Vector2( 3682.97, 1536.79 )
+
+[node name="Goblin" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 969.983, 663.86 )
+
+[node name="Goblin5" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 4790.79, 729.302 )
+
+[node name="Goblin6" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 5052.55, 1298.14 )
+
+[node name="Goblin7" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 5110.44, 943.247 )
+
+[node name="Goblin8" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 5336.97, 681.479 )
+
+[node name="Goblin9" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 5543.37, 996.104 )
 
 [node name="Goblin2" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 715.093, 643.822 )
+position = Vector2( 1317.59, 613.917 )
+
+[node name="Goblin3" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 504.509, 1794.58 )
+
+[node name="Goblin4" parent="Mobs" instance=ExtResource( 2 )]
+position = Vector2( 938.02, 1876.49 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 447.144, 937.228 )
@@ -32,9 +59,6 @@ position = Vector2( 447.144, 937.228 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 13.0509, 0.754395 )
 current = true
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
@@ -62,4 +86,9 @@ value = 50.0
 texture_under = ExtResource( 9 )
 texture_progress = ExtResource( 8 )
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Timers" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="Timers"]
+autostart = true
+
+[connection signal="timeout" from="Timers/Timer" to="." method="_on_Timer_timeout"]

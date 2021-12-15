@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 16.81
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[node name="BounceParticles" type="Particles2D"]
+scale = Vector2( 5, 5 )
+emitting = false
+amount = 10
+one_shot = true
+speed_scale = 2.98
+explosiveness = 0.88
+randomness = 1.0
+process_material = SubResource( 1 )

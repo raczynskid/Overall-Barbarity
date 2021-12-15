@@ -6,6 +6,7 @@ var player
 # stats
 export var hp : float = 100.0
 export var MELEE_DMG : float = 10
+export var CHASE_RANGE : float = 1000
 
 # states
 onready var burning = false
@@ -44,7 +45,7 @@ func _physics_process(delta):
 	else:
 		animation_player.play("Strike")
 
-	if path.size() > 0:
+	if path.size() > 0 and global_position.distance_to(player.global_position) < CHASE_RANGE:
 		look_at(path[0])
 		move_to_target()
 	else:
