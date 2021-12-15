@@ -4,11 +4,12 @@ extends KinematicBody2D
 var player
 
 # stats
-export onready var hp : float = 50.0
-export onready var SHOT_RANGE : int = 500
+export var hp : float = 100.0
+export var SHOT_RANGE : int = 500
 
 # states
 onready var burning = false
+onready var dead = false
 onready var fire = get_node("OnFire")
 
 # movement and pathfinding
@@ -20,6 +21,7 @@ var retreat : bool = false
 # animation
 onready var animation_player = get_node("AnimationPlayer")
 onready var sprite = get_node("Sprite")
+onready var death_sprite = get_node("DeathSprite")
 
 # combat
 onready var target_ray = get_node("Targeting")
@@ -42,30 +44,36 @@ func _on_Awareness_body_exited(body):
 		retreat = false
 
 func _physics_process(delta):
-	if hp <= 0:
-		die()
-	look_at(Global.Player.position)
-	if retreat:
-		move_and_slide(get_player_vector(delta))
+	if not dead:
+		if hp <= 0:
+			die()
+		look_at(Global.Player.position)
+		if retreat:
+			move_and_slide(get_player_vector(delta))
 
 func burn():
 	burning = true
 	fire.start()
 
 func die():
-	queue_free()
+	sprite.visible = false
+	death_sprite.visible = true
+	get_node("CollisionShape2D").disabled = true
+	animation_player.play("Die")
+	dead = true
 	
 func take_damage(dmg_points):
 	sprite.self_modulate = Color(255,0,0)
 	hp -= dmg_points
 
 func _on_Shooting_timeout():
-	if (global_position.distance_to(player.global_position)) < SHOT_RANGE:
-		animation_player.play("Shoot")
-		arrow = missile.instance()
-		arrow.shooter = self
-		arrow.target_object = player
-		arrow.set_position(self.get_position())
+	if not dead:
+		if (global_position.distance_to(player.global_position)) < SHOT_RANGE:
+			animation_player.play("Shoot")
+			arrow = missile.instance()
+			arrow.shooter = self
+			arrow.target_object = player
+			arrow.set_position(self.get_position())
 
 func _on_fire_shot():
 	owner.add_child(arrow) 

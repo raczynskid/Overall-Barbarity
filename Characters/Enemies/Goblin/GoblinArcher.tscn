@@ -1,10 +1,53 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://FX/OnFire.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Enemies/Goblin/Spritesheets/Goblin-archer-Sheet.png" type="Texture" id=2]
 [ext_resource path="res://Characters/Enemies/Goblin/GoblinArcher.gd" type="Script" id=3]
 [ext_resource path="res://FX/DamageReset.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Characters/Abilities/Shot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Characters/Enemies/Goblin/Spritesheets/Goblin-archer-die-Sheet.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=6]
+resource_name = "Die"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("DeathSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DeathSprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.8, 4.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 4.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -89,9 +132,9 @@ rotation = 1.5708
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 hframes = 5
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Die = SubResource( 6 )
 anims/Idle = SubResource( 1 )
 anims/Shoot = SubResource( 2 )
 anims/Walk = SubResource( 3 )
@@ -115,6 +158,13 @@ cast_to = Vector2( 0, 1000 )
 [node name="Shooting" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="DeathSprite" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.775 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 6 )
+hframes = 2
 
 [connection signal="body_entered" from="Awareness" to="." method="_on_Awareness_body_entered"]
 [connection signal="body_exited" from="Awareness" to="." method="_on_Awareness_body_exited"]
