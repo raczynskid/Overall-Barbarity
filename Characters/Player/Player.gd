@@ -77,6 +77,8 @@ func _physics_process(delta):
 func _on_MeleeHurtbox_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(MELEE_DMG)
+	if body.is_in_group("projectile"):
+		body.deflect_projectile()
 
 func _on_ManaRegeneration_timeout():
 	mana_regeneration = true

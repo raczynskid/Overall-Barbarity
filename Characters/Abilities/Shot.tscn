@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.4167, 2.5 )
 
-[node name="Arrow" type="KinematicBody2D"]
+[node name="Arrow" type="KinematicBody2D" groups=[
+"projectile",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -22,5 +24,6 @@ shape = SubResource( 1 )
 [node name="Destroy" type="Timer" parent="."]
 autostart = true
 
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
 [connection signal="timeout" from="Destroy" to="." method="_on_Destroy_timeout"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Characters/Enemies/Goblin/Goblin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilemaps/Environment.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Characters/Enemies/Goblin/GoblinArcher.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World.gd" type="Script" id=5]
@@ -157,58 +156,7 @@ texture = ExtResource( 10 )
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="GoblinArcher" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 1653.2, 1108.72 )
-
-[node name="GoblinArcher5" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 695.867, 759.387 )
-
-[node name="GoblinArcher6" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 1882.53, 1423.39 )
-
-[node name="GoblinArcher7" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 1859.87, 1778.05 )
-
-[node name="GoblinArcher2" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 3371.32, 1710.59 )
-
-[node name="GoblinArcher3" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 3211.03, 1485.19 )
-
-[node name="GoblinArcher4" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 605.94, 1149.17 )
-
-[node name="Goblin" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 969.983, 663.86 )
-
-[node name="Goblin10" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 2196.65, 1579.86 )
-
-[node name="Goblin11" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 2187.32, 1297.19 )
-
-[node name="Goblin5" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 4790.79, 729.302 )
-
-[node name="Goblin6" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 5052.55, 1298.14 )
-
-[node name="Goblin7" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 5110.44, 943.247 )
-
-[node name="Goblin8" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 5336.97, 681.479 )
-
-[node name="Goblin9" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 5543.37, 996.104 )
-
-[node name="Goblin2" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 1317.59, 613.917 )
-
-[node name="Goblin3" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 504.509, 1794.58 )
-
-[node name="Goblin4" parent="Mobs" instance=ExtResource( 2 )]
-position = Vector2( 938.02, 1876.49 )
+position = Vector2( 713.325, 1183.55 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 447.144, 937.228 )

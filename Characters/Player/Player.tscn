@@ -162,7 +162,9 @@ position = Vector2( 54.8822, -18.1129 )
 position = Vector2( -5.18544, -1.1785 )
 shape = SubResource( 8 )
 
-[node name="MeleeHurtbox" type="Area2D" parent="."]
+[node name="MeleeHurtbox" type="Area2D" parent="." groups=[
+"hurtbox_melee",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHurtbox"]
 position = Vector2( 15.416, 0 )
