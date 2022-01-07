@@ -30,7 +30,9 @@ export(Resource) var missile
 
 func _ready():
 	yield(owner, "ready")
-	player = owner.player
+	var world = owner.get_node("World")
+	var environment = owner.get_node("Environment")
+	player = world.player
 
 func get_player_vector(delta):
 	return (global_position - player.global_position) * speed * delta

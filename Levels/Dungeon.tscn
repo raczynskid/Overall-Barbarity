@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://World.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tilemaps/Environment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Enemies/Goblin/GoblinArcher.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/Enemies/Goblin/Goblin.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+onready var player = get_node(\"Player\")
+onready var nav = get_node(\"Environment/Navigation2D\")
+
+func _on_Timer_timeout():
+	get_tree().call_group(\"enemy\", \"get_target_path\", player.global_position)
+
+func _on_MissileClear_timeout():
+	pass"
+
+[node name="Dungeon" type="Node2D"]
+
+[node name="Environment" parent="." instance=ExtResource( 2 )]
+
+[node name="GoblinArcher" parent="Environment" instance=ExtResource( 3 )]
+position = Vector2( 810.627, 1365.4 )
+
+[node name="Goblin" parent="Environment" instance=ExtResource( 4 )]
+position = Vector2( 868.929, 1046.98 )
+
+[node name="World" parent="." instance=ExtResource( 1 )]
+script = SubResource( 1 )
+
+[editable path="Environment"]

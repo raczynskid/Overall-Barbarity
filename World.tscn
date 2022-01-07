@@ -1,162 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Tilemaps/Environment.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Characters/Enemies/Goblin/GoblinArcher.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World.gd" type="Script" id=5]
 [ext_resource path="res://UI/HP Bar Texture.png" type="Texture" id=6]
 [ext_resource path="res://Control.gd" type="Script" id=7]
 [ext_resource path="res://UI/Mana Bar Texture.png" type="Texture" id=8]
 [ext_resource path="res://UI/Empty Bar Texture.png" type="Texture" id=9]
-[ext_resource path="res://AssetsOther/Rock-large.png" type="Texture" id=10]
-[ext_resource path="res://AssetsOther/Rock-medium.png" type="Texture" id=11]
-[ext_resource path="res://AssetsOther/Rock-small.png" type="Texture" id=12]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="Environment" parent="." instance=ExtResource( 3 )]
-
-[node name="Props" type="Node2D" parent="Environment"]
-
-[node name="Rock-large" type="Sprite" parent="Environment/Props"]
-position = Vector2( 981.273, 1063.37 )
-scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
-
-[node name="Rock-large3" type="Sprite" parent="Environment/Props"]
-position = Vector2( 1594.61, 1631.37 )
-scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
-
-[node name="Rock-large4" type="Sprite" parent="Environment/Props"]
-position = Vector2( 2267.94, 1123.37 )
-rotation = 1.21175
-scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
-
-[node name="Rock-large6" type="Sprite" parent="Environment/Props"]
-position = Vector2( 2406.61, 1435.37 )
-rotation = -0.38203
-scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
-
-[node name="Rock-large7" type="Sprite" parent="Environment/Props"]
-position = Vector2( 2319.94, 1838.04 )
-rotation = -0.38203
-scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
-
-[node name="Rock-medium" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( -245.374, -164.339 )
-texture = ExtResource( 11 )
-
-[node name="Rock-medium2" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( -101.614, -103.707 )
-texture = ExtResource( 11 )
-
-[node name="Rock-medium3" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 53.9869, -209.886 )
-texture = ExtResource( 11 )
-
-[node name="Rock-medium4" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 31.2971, -235.67 )
-texture = ExtResource( 11 )
-
-[node name="Rock-medium5" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 105.643, -52.3372 )
-texture = ExtResource( 11 )
-
-[node name="Rock-medium6" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 105.224, 27.3875 )
-rotation = 1.2345
-texture = ExtResource( 11 )
-
-[node name="Rock-medium7" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 375.89, 62.5622 )
-rotation = 0.53052
-texture = ExtResource( 11 )
-
-[node name="Rock-medium8" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 328.314, 152.366 )
-rotation = 0.53052
-texture = ExtResource( 11 )
-
-[node name="Rock-medium9" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 505.467, 39.0401 )
-rotation = 0.53052
-texture = ExtResource( 11 )
-
-[node name="Rock-medium10" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 631.914, 54.7817 )
-rotation = 0.53052
-texture = ExtResource( 11 )
-
-[node name="Rock-medium11" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 607.807, 146.256 )
-rotation = 0.53052
-texture = ExtResource( 11 )
-
-[node name="Rock-medium12" type="Sprite" parent="Environment/Props/Rock-large7"]
-position = Vector2( 534.762, 214.332 )
-rotation = 0.53052
-texture = ExtResource( 11 )
-
-[node name="Rock-small" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( -130.142, -4.79922 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small2" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( -61.2944, 49.8835 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small3" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( -85.3237, 94.7321 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small4" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( -75.5489, -47.2094 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small5" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( 19.4194, -57.6409 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small6" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( 36.3264, -130.275 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small7" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( -160.556, -150.436 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small8" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( -173.257, -109.169 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small9" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( -281.617, -47.6611 )
-texture = ExtResource( 12 )
-
-[node name="Rock-small10" type="Sprite" parent="Environment/Props/Rock-large7/Rock-medium12"]
-position = Vector2( -330.619, -38.1738 )
-texture = ExtResource( 12 )
-
-[node name="Rock-large5" type="Sprite" parent="Environment/Props"]
-position = Vector2( 2163.94, 702.039 )
-rotation = -1.66522
-scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
-
-[node name="Rock-large2" type="Sprite" parent="Environment/Props"]
-position = Vector2( 763.82, 1637.89 )
-scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
-
 [node name="Mobs" type="Node2D" parent="."]
-
-[node name="GoblinArcher" parent="Mobs" instance=ExtResource( 4 )]
-position = Vector2( 713.325, 1183.55 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 447.144, 937.228 )
@@ -174,6 +28,7 @@ __meta__ = {
 }
 
 [node name="HP" type="TextureProgress" parent="Control"]
+light_mask = 524288
 margin_right = 40.0
 margin_bottom = 40.0
 value = 50.0
@@ -184,12 +39,16 @@ __meta__ = {
 }
 
 [node name="Mana" type="TextureProgress" parent="Control"]
+light_mask = 524288
 margin_top = 37.0
 margin_right = 40.0
 margin_bottom = 40.0
 value = 50.0
 texture_under = ExtResource( 9 )
 texture_progress = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timers" type="Node" parent="."]
 

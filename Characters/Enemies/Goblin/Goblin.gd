@@ -34,8 +34,10 @@ onready var label = get_node("Label")
 
 func _ready():
 	yield(owner, "ready")
-	nav = owner.nav
-	player = owner.player
+	var world = owner.get_node("World")
+	var environment = owner.get_node("Environment")
+	player = world.player
+	nav = environment.get_node("Navigation2D")
 
 # warning-ignore:unused_variable
 func _physics_process(delta):
