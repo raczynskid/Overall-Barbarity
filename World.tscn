@@ -13,13 +13,21 @@ script = ExtResource( 5 )
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 447.144, 937.228 )
+position = Vector2( 540.482, 672.299 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 13.0509, 0.754395 )
 current = true
+smoothing_enabled = true
 
-[node name="Control" type="Control" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 7 )
@@ -27,10 +35,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HP" type="TextureProgress" parent="Control"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+self_modulate = Color( 1, 1, 1, 0.623529 )
+margin_right = 325.0
+margin_bottom = 95.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP" type="TextureProgress" parent="CanvasLayer/Control"]
 light_mask = 524288
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 14.1422
+margin_top = 16.0278
+margin_right = 314.142
+margin_bottom = 56.0278
 value = 50.0
 texture_under = ExtResource( 9 )
 texture_progress = ExtResource( 6 )
@@ -38,21 +56,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Mana" type="TextureProgress" parent="Control"]
+[node name="Mana" type="TextureProgress" parent="CanvasLayer/Control"]
 light_mask = 524288
-margin_top = 37.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 14.1422
+margin_top = 53.0278
+margin_right = 314.142
+margin_bottom = 83.0278
 value = 50.0
 texture_under = ExtResource( 9 )
 texture_progress = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Timers" type="Node" parent="."]
-
-[node name="Timer" type="Timer" parent="Timers"]
-autostart = true
 
 [connection signal="timeout" from="Timers/Timer" to="." method="_on_Timer_timeout"]
