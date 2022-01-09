@@ -10,3 +10,9 @@ func _physics_process(delta):
 				body.burn()
 				body.hp -= immediate_dmg * delta
 
+		for area in get_overlapping_areas():
+			if area.get_parent().is_in_group("flammeable"):
+				var flammeable_obj = area.get_parent()
+				flammeable_obj.burn()
+				flammeable_obj.hp -= immediate_dmg * delta
+				

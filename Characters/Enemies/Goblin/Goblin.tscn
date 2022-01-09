@@ -6,7 +6,7 @@
 [ext_resource path="res://FX/DamageReset.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Characters/Enemies/Goblin/Spritesheets/Goblin-die-Sheet.png" type="Texture" id=5]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=1]
 resource_name = "Die"
 length = 4.0
 tracks/0/type = "value"
@@ -48,8 +48,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Idle"
+[sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -64,8 +63,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Strike"
+[sub_resource type="Animation" id=3]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -101,7 +99,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -117,14 +115,14 @@ tracks/0/keys = {
 "values": [ 2, 3, 4, 3 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 18.6667
 height = 56.0
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=6]
 radius = 104.452
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 radius = 42.4954
 
 [node name="Goblin" type="KinematicBody2D" groups=[
@@ -141,20 +139,20 @@ texture = ExtResource( 1 )
 hframes = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Die = SubResource( 7 )
-anims/Idle = SubResource( 1 )
-anims/Strike = SubResource( 2 )
-anims/Walk = SubResource( 3 )
+anims/Die = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/Strike = SubResource( 3 )
+anims/Walk = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="OnFire" parent="." instance=ExtResource( 3 )]
 
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -25.3984
@@ -171,7 +169,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( 22.753, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 disabled = true
 
 [node name="DeathSprite" type="Sprite" parent="."]
