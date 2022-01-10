@@ -124,6 +124,8 @@ radius = 42.2495
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
+z_index = 2
+z_as_relative = false
 script = ExtResource( 2 )
 
 [node name="Feet" type="AnimatedSprite" parent="."]
