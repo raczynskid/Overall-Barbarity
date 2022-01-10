@@ -129,6 +129,8 @@ radius = 42.4954
 "enemy",
 "flammeable",
 ]]
+z_index = 2
+z_as_relative = false
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

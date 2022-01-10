@@ -11,11 +11,8 @@
 z_index = -2
 script = ExtResource( 5 )
 
-[node name="Mobs" type="Node2D" parent="."]
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 540.482, 672.299 )
-z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 13.0509, 0.754395 )

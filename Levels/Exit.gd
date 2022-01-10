@@ -9,4 +9,4 @@ func _ready():
 
 func _on_Exit_body_entered(body):
 	if body == player:
-		print("Exited")
+		get_tree().change_scene("res://Levels/Forest.tscn")
