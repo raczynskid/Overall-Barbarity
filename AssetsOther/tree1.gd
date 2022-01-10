@@ -43,3 +43,4 @@ func die():
 	stump.visible = false
 	burnt_crown.visible = true
 	smoke.emitting = true
+	get_node("StaticBody2D/CollisionShape2D").disabled = true
