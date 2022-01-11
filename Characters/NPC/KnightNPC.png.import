@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Knight_portrait-Sheet.png-eb4873444146e96ec3e37a1551f59623.stex"
+path="res://.import/KnightNPC.png-6a63188d47bdd64c756228c9df509494.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/NPC/Portraits/Knight_portrait-Sheet.png"
-dest_files=[ "res://.import/Knight_portrait-Sheet.png-eb4873444146e96ec3e37a1551f59623.stex" ]
+source_file="res://Characters/NPC/KnightNPC.png"
+dest_files=[ "res://.import/KnightNPC.png-6a63188d47bdd64c756228c9df509494.stex" ]
 
 [params]
 

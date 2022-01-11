@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Knight_portrait-Sheet.png-eb4873444146e96ec3e37a1551f59623.stex"
+path="res://.import/CartBroken.png-d918c9dc8eec8911fc51eb6495265493.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/NPC/Portraits/Knight_portrait-Sheet.png"
-dest_files=[ "res://.import/Knight_portrait-Sheet.png-eb4873444146e96ec3e37a1551f59623.stex" ]
+source_file="res://AssetsOther/CartBroken.png"
+dest_files=[ "res://.import/CartBroken.png-d918c9dc8eec8911fc51eb6495265493.stex" ]
 
 [params]
 

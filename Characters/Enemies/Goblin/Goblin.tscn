@@ -157,6 +157,7 @@ shape = SubResource( 5 )
 shape = SubResource( 6 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -25.3984
 margin_top = -125.405
 margin_right = 14.6016

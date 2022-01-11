@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Knight_portrait-Sheet.png-eb4873444146e96ec3e37a1551f59623.stex"
+path="res://.import/DungeonEntrance.png-9a0d7d2451e323c2caf49724f04e1f46.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/NPC/Portraits/Knight_portrait-Sheet.png"
-dest_files=[ "res://.import/Knight_portrait-Sheet.png-eb4873444146e96ec3e37a1551f59623.stex" ]
+source_file="res://AssetsOther/DungeonEntrance.png"
+dest_files=[ "res://.import/DungeonEntrance.png-9a0d7d2451e323c2caf49724f04e1f46.stex" ]
 
 [params]
 

@@ -150,6 +150,7 @@ anims/Swing = SubResource( 6 )
 anims/Walk = SubResource( 7 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -25.7661
 margin_top = -61.2442
 margin_right = 14.2339
