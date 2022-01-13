@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var base = get_parent()
-export onready var immediate_dmg = 10
+export var immediate_dmg = 10
 
 func _physics_process(delta):
 	if base.enabled:

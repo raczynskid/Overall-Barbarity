@@ -12,10 +12,12 @@ onready var mana_regeneration : bool = false
 onready var animation_player = get_node("AnimationPlayer")
 onready var label = get_node("Label")
 onready var fire = get_node("Fire")
+onready var thunder = get_node("Thunder")
 onready var feet = get_node("Feet")
 onready var hurtbox = get_node("MeleeHurtbox/CollisionShape2D")
 onready var mana_regen_timer = get_node("ManaRegeneration")
 onready var sprite = get_node("Sprite")
+onready var magic = "thunder"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,20 +28,36 @@ func _ready():
 func lookAtMouse(delta):
 	look_at(get_global_mouse_position())
 
+func spell_choice():
+	if Input.is_action_just_pressed("spell1"):
+		magic = "fire"
+	if Input.is_action_just_pressed("spell2"):
+		magic = "thunder"
 
 func _physics_process(delta):
+	spell_choice()
 	if Input.is_action_just_pressed("attack"):
 		if sword_cooldown <= 0:
 			attack = true
 			animation_player.play("Swing")
 	if Input.is_action_pressed("alt_attack"):
-		mana_regeneration = false
-		mana_regen_timer = 3
-		if MANA > 0:
-			attack = true
-			animation_player.play("Magic")
-			fire.enable()
-			MANA -= 10 * delta
+		if magic == "fire":
+			mana_regeneration = false
+			mana_regen_timer = 3
+			if MANA > 0:
+				attack = true
+				animation_player.play("Magic")
+				fire.enable()
+				MANA -= 10 * delta
+		elif magic == "thunder":
+			mana_regeneration = false
+			mana_regen_timer = 3
+			if MANA > 30:
+				attack = true
+				animation_player.play("Magic")
+				thunder.shoot()
+				MANA -= 30
+
 	else:
 		if mana_regeneration and MANA < 100:
 			MANA += 100 * delta
